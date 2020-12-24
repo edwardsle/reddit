@@ -1,6 +1,6 @@
 const express = require('express');
 const usersRoute = express.Router();
-const User = require('../models/User');
+const { User } = require('../models');
 const generateToken = require('../config/generateToken');
 const authorize = require("../middleware/authorize");
 
@@ -35,7 +35,7 @@ usersRoute.post('/register', async (req, res) => {
         });
     
         if (userCreated != null) {
-            res.sendStatus(200);           
+            res.sendStatus(200);
         } else {
             res.sendStatus(500);
             console.log('User creating failed');

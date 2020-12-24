@@ -16,10 +16,10 @@ app.listen({ port: PORT }, async () => {
   console.log('Database Connected!')
 })
 
-// async function main() {
-//   await sequelize.sync({ alter: true})
-// }
-//main()
+async function main() {
+  await sequelize.sync({ alter: true})
+}
+main()
 
 // Routes
-app.use('/api/users', require('./routes/usersRoute'));
+// app.use('/api/users', require('./routes/usersRoute'));
