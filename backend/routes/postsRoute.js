@@ -4,17 +4,33 @@ const { Post } = require('../models');
 
 postsRoute.use(express.json());
 
+// Get Post by ID
+postsRoute.get('/', async (req, res) => {
+    const postid = req.params.postID;
 
-postsRoute.get('/',async (req, res) => {
-        const posts = await Post.findAll();
+    const post = await Post.findAll();
+    if(post === null ){
+        res.sendStatus(404);
+        console.log("No Posts found");
+    }
+    else{
+        res.status(200).json(post);
+    }
+});
 
-        if (posts === null) {
-            res.sendStatus(500);
-            console.log('There are no post');
-        } else {
-            res.status(200).json(posts);
-        }
-    });
+// Get Post by ID
+postsRoute.get('/:id', async (req, res) => {
+    const postid = req.params.postID;
+
+    const post = await Post.findByPk(postid);
+    if(post === null ){
+        res.sendStatus(404);
+        console.log("Post not found");
+    }
+    else{
+        res.status(200).json(post);
+    }
+});
 
 
 // Create Post
@@ -32,7 +48,7 @@ postsRoute.post('/create', async (req, res) => {
         res.status(200);
     } else {
         res.sendStatus(404);
-        console.log('User creating failed');
+        console.log('Post creating failed');
     }
 });
 
