@@ -1,14 +1,12 @@
 const express = require('express');
 const commentsRoute = express.Router();
-const { Comment } = require('../models');
+const { Comment, User, Post } = require('../models');
 
 commentsRoute.use(express.json());
 
 //Get all comment 
 commentsRoute.get('/', async (req, res) => {
-    console.log("hi")
-
-    const comments = await Comment.findAll();
+    const comments = await Comment.findAll({include: [{model: User}, {model:Post}]});
     if(comments != null ){
         res.status(200).json(comments);
     }
@@ -23,7 +21,7 @@ commentsRoute.get('/:postID', async (req, res) => {
     console.log("hi")
     const postid = req.params.postID;
     console.log(postid);
-    const comments = await Comment.findAll({where: {postId:postid}});
+    const comments = await Comment.findAll({include: [{model: User}, {model:Post}], where: {postId:postid}});
     if(comments != null ){
         res.status(200).json(comments);
     }

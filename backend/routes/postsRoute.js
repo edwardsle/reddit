@@ -27,10 +27,6 @@ postsRoute.get('/:postID', async (req, res) => {
 postsRoute.post('/create', async (req, res) => {
     let { subject, imgUrl, content, userId } = req.body;
     subject = subject.toLowerCase();
-    // console.log(subject);
-    // console.log(imgUrl);
-    // console.log(content);
-    // console.log(userId);
     const postCreated = Post.create({
         subject,
         imgUrl,
