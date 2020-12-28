@@ -1,28 +1,21 @@
 const express = require('express');
 const postsRoute = express.Router();
-const { Post } = require('../models');
+const { Post, User } = require('../models');
 
 postsRoute.use(express.json());
 
 // Get Post by ID
-postsRoute.get('/', async (req, res) => {
-    const post = await Post.findAll();
-    if(post === null ){
-        res.sendStatus(404);
-        console.log("No Posts found");
-    }
-    else{
-        res.status(200).json(post);
-    }
+postsRoute.get('/all', async (req, res) => {
+    const post = await Post.findAll( { include: User } );
+    res.status(200).json(post);
 });
 
 // Get Post by ID
 postsRoute.get('/:postID', async (req, res) => {
     const postid = req.params.postID;
-    const post = await Post.findByPk(postid);
+    const post = await Post.findByPk(postid, { include: User } );
     if(post === null ){
-        res.sendStatus(404);
-        console.log("Post not found");
+        res.status(404).send('404 - Not found');
     }
     else{
         res.status(200).json(post);
@@ -46,10 +39,9 @@ postsRoute.post('/create', async (req, res) => {
     });
 
     if (postCreated != null) {
-        res.status(200).send("Insert succesfully");
+        res.status(201).end();
     } else {
-        res.sendStatus(404);
-        console.log('Post creating failed');
+        res.status(404).send('404 - Not found');
     }
 });
 
@@ -68,10 +60,9 @@ postsRoute.put('/update/:postID', async (req, res) => {
         }
     })
     if (postUpdate != null) {
-        res.status(200).send("Update successfully");
+        res.status(200).end();
     } else {
-        res.sendStatus(404);
-        console.log('Update failed');
+        res.status(404).send('404 - Not found');
     }
 
 });
@@ -86,9 +77,9 @@ postsRoute.delete('/delete/:postID', async (req, res) => {
     });
 
     if (isDel != null) {
-        res.status(200);
+        res.status(200).end();
     } else {
-        res.sendStatus(404);
+        res.status(404).send('404 - Not found');
     }
 });
 
