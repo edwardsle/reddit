@@ -1,7 +1,7 @@
 const { Sequelize, Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    class Post extends Model {
+    class Comment extends Model {
         static associate({ User, Post }) {
             this.belongsTo(User, {
                 foreignKey: 'userId',
@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             });
         }
     }
-    Post.init({
+    Comment.init({
         id:{
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         modelName: 'Comment'
     });
 
-    return Post;
+    return Comment;
 }
 
 

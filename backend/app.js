@@ -23,5 +23,7 @@ async function main() {
 main()
 
 // Routes
-// app.use('/api/users', require('./routes/usersRoute'));
-// app.use('/api/posts', authorize, require('./routes/postsRoute'));
+app.use('/api/users', require('./routes/usersRoute'));
+app.use('/api/posts', require('./routes/postsRoute'));
+app.use('/api/comments', require('./routes/commentsRoute'));
+app.use('/api/likes', require('./routes/likesRoute'));

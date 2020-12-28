@@ -6,8 +6,6 @@ postsRoute.use(express.json());
 
 // Get Post by ID
 postsRoute.get('/', async (req, res) => {
-    const postid = req.params.postID;
-
     const post = await Post.findAll();
     if(post === null ){
         res.sendStatus(404);
@@ -19,9 +17,8 @@ postsRoute.get('/', async (req, res) => {
 });
 
 // Get Post by ID
-postsRoute.get('/:id', async (req, res) => {
+postsRoute.get('/:postID', async (req, res) => {
     const postid = req.params.postID;
-
     const post = await Post.findByPk(postid);
     if(post === null ){
         res.sendStatus(404);
@@ -35,17 +32,21 @@ postsRoute.get('/:id', async (req, res) => {
 
 // Create Post
 postsRoute.post('/create', async (req, res) => {
-    let { subject, imgUrl, content, userid } = req.body;
+    let { subject, imgUrl, content, userId } = req.body;
     subject = subject.toLowerCase();
+    // console.log(subject);
+    // console.log(imgUrl);
+    // console.log(content);
+    // console.log(userId);
     const postCreated = Post.create({
         subject,
         imgUrl,
         content,
-        userid
+        userId
     });
 
     if (postCreated != null) {
-        res.status(200);
+        res.status(200).send("Insert succesfully");
     } else {
         res.sendStatus(404);
         console.log('Post creating failed');
@@ -67,7 +68,7 @@ postsRoute.put('/update/:postID', async (req, res) => {
         }
     })
     if (postUpdate != null) {
-        res.status(200);
+        res.status(200).send("Update successfully");
     } else {
         res.sendStatus(404);
         console.log('Update failed');
