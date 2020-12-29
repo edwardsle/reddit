@@ -18,11 +18,13 @@ class PopularPost extends Component {
                                 <a className="dropdown-toggle pr-3"> United States</a>
                                 <a className="dropdown-toggle"> All States</a>                                
                             </div>
-                            <div className="col-lg-5 d-none d-md-block text-muted">
+                            <div className="col-lg-6 d-none d-md-block text-muted">
                                 <a className="pr-3"><i class="fas fa-certificate"></i> New</a>
                                 <a className=""><i class="fas fa-sort-numeric-up"></i> Top</a>
                             </div>
-                            <div className="col-1 col-lg-1"></div>
+                            <div className="col-1 col-lg-1 text-right text-primary">
+                                <a className="dropdown-toggle"><i class="fas fa-equals"></i></a>                            
+                            </div>
                         </div>
                         <MainContent />
                     </MDBCol>
