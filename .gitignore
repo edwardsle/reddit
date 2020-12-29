@@ -3,3 +3,4 @@ backend/config/dbConnect.js
 backend/config/dbConnect.js
 *.json
 *.gz
+backend/config/dbConnect.js

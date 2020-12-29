@@ -10,7 +10,7 @@ class Navbar extends Component {
                     <img className="float-left" width="30px" src="img/reddit_logo.png" />
                     <span className="d-none d-md-block float-left ml-1"><strong>reddit</strong></span>
                 </MDBNavbarBrand>
-                <MDBCol className="mx-auto">
+                <MDBCol md='6' className="mx-auto">
                     <div className="input-group form-sm">
                         <div className="input-group-prepend">
                             <span className="input-group-text">
