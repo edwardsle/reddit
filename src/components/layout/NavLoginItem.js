@@ -18,7 +18,7 @@ class NavLoginItem extends Component {
     render() {
         if(this.state.isLogged){
             return (
-                <MDBNavItem>
+                <MDBNavItem className="d-none d-lg-block">
                     <MDBNavLink className="waves-effect waves-light" to="#!">
                         {this.state.userAuthData.name}
                     </MDBNavLink>
@@ -27,10 +27,10 @@ class NavLoginItem extends Component {
         } else {
             return(
                 <>                
-                <MDBNavItem>
+                <MDBNavItem className="d-none d-lg-block">
                     <MDBNavLink className="btn btn-outline-primary waves-effect waves-light btn-sm px-4" to="login">LOG IN</MDBNavLink>
                 </MDBNavItem>
-                <MDBNavItem>
+                <MDBNavItem className="d-none d-lg-block">
                     <MDBNavLink className="btn btn-primary btn-sm waves-effect waves-light text-white px-4" to="register">SIGN UP</MDBNavLink>
                 </MDBNavItem>
                 </>

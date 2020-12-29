@@ -47,7 +47,14 @@ export default class MainPagePostCard extends Component {
                         <p>{this.props.post.content} </p>
                         <img className="img-fluid" src="https://picsum.photos/600/300" />
                     </div>
-                    <div className="mt-2 text-muted"><p><small><i class="fas fa-comment-alt"></i>{this.props.post.commentsCount} Comments  <i class="fas fa-share"></i> Share  <i class="fas fa-bookmark"></i> Save </small></p></div>
+                    <div className="mt-2 text-muted">
+                        <p>
+                            <a className="mr-3"><small><i class="fas fa-comment-alt"></i> {this.props.post.commentsCount} Comments</small></a>
+                            <a className="mr-3"><small><i class="fas fa-share"></i> Share</small></a>
+                            <a className="mr-3"><small><i class="fas fa-bookmark"></i> Save</small></a>
+                            <a className=""><small><i class="fas fa-ellipsis-h"></i></small></a>
+                        </p>
+                    </div>
                 </div>
             </div>
 
