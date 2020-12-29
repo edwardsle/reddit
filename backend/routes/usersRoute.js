@@ -35,7 +35,7 @@ usersRoute.post('/register', async (req, res) => {
         });
     
         if (userCreated != null) {
-            res.sendStatus(200);
+            res.status(200).end();
         } else {
             res.sendStatus(500);
             console.log('User creating failed');

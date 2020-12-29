@@ -1,6 +1,6 @@
 const express = require('express');
 const postsRoute = express.Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment, Like } = require('../models');
 
 postsRoute.use(express.json());
 

@@ -5,14 +5,13 @@ const { Comment, User, Post } = require('../models');
 commentsRoute.use(express.json());
 
 //Get all comment 
-commentsRoute.get('/', async (req, res) => {
+commentsRoute.get('/all', async (req, res) => {
     const comments = await Comment.findAll({include: [{model: User}, {model:Post}]});
     if(comments != null ){
         res.status(200).json(comments);
     }
     else{
-        res.sendStatus(404);
-        console.log("Post not found");
+        res.status(404).send('404 - Not found');
     }
 });
 
@@ -26,8 +25,7 @@ commentsRoute.get('/:postID', async (req, res) => {
         res.status(200).json(comments);
     }
     else{
-        res.sendStatus(404);
-        console.log("Post not found");
+        res.status(404).send('404 - Not found');
     }
 });
 
@@ -42,11 +40,10 @@ commentsRoute.post('/create', async (req, res) => {
     });
 
     if(commentCreated != null ){
-        res.status(200).send("Comment inserted");
+        res.status(200).end();
     }
     else{
-        res.sendStatus(404);
-        console.log("Post not found");
+        res.status(404).send('404 - Not found');
     }
 });
 

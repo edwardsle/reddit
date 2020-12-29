@@ -10,12 +10,10 @@ likesRoute.get('/post/:postID', async (req, res) => {
     const totalVote = await Like.findOne({ include:[{model: Post},{model: User}], where: {postId: postid}},);
 
     if(totalVote != null) {
-        console.log(totalVote.likes);
         res.status(200).json({like: totalVote});
     }
     else{
-        res.sendStatus(404);
-        console.log("Not found")
+        res.status(404).send('404 - Not found');
     }
 });
 
@@ -29,10 +27,9 @@ likesRoute.post('/create', async (req, res) => {
     });
 
     if (likes != null) {
-        res.status(200).send("Insert succesfully");
+        res.status(200).end();
     } else {
-        res.sendStatus(404);
-        console.log('Post creating failed');
+        res.status(404).send('404 - Not found');
     }
 });
 
@@ -52,10 +49,9 @@ likesRoute.put('/upvote/:postID', async (req, res) => {
         })
     })
     if (likeUpdated != null) {
-        res.status(200).send("Update successfully");
+        res.status(200).end();
     } else {
-        res.sendStatus(404);
-        console.log('Update failed');
+        res.status(404).send('404 - Not found');
     }
 });
 
@@ -75,10 +71,9 @@ likesRoute.put('/downvote/:postID', async (req, res) => {
         })
     })
     if (likeUpdated != null) {
-        res.status(200).send("Update successfully");
+        res.status(200).end();
     } else {
-        res.sendStatus(404);
-        console.log('Update failed');
+        res.status(404).send('404 - Not found');
     }
 });
 
