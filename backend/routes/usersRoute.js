@@ -8,9 +8,7 @@ usersRoute.use(express.json());
 
 
 // All users
-usersRoute.get(
-    '/',
-    async (req, res) => {
+usersRoute.get('/',async (req, res) => {
       const users = await User.findAll();
   
       if (users === null) {

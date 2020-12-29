@@ -1,0 +1,21 @@
+.imgSidebar{
+    width: 35px;
+    height: 50px;
+    margin-right: 10px; 
+}
+
+.flex-row{
+    justify-content: space-between;
+}
+.flex-row .btn-default{
+    color: #575858;
+    background-color: #d6dde4 !important;
+}
+
+.d-flex .btn {
+    box-shadow: 0;
+}
+
+.viewall {
+    background-color: #d6dde4 !important;
+}

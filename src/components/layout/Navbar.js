@@ -28,10 +28,10 @@ class Navbar extends Component {
                                 <MDBIcon icon="user" />
                             </MDBDropdownToggle>
                             <MDBDropdownMenu right basic className="dropdown-default">
-                                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                                <MDBDropdownItem href="#!"> <MDBIcon icon="copyright"/> Reddit Coins</MDBDropdownItem>
+                                <MDBDropdownItem href="#!"> <MDBIcon icon="landmark" /> Reddit Premium</MDBDropdownItem>
+                                <MDBDropdownItem href="#!"> <MDBIcon far icon="question-circle" /> Help Center</MDBDropdownItem>
+                                <MDBDropdownItem href="#!"><MDBIcon icon="sign-in-alt" /> Log In / Sign Up</MDBDropdownItem>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>

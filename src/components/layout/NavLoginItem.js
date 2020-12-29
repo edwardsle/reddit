@@ -11,7 +11,7 @@ class NavLoginItem extends Component {
     componentDidMount() {
         const isLogged = localStorage.getItem('userAuthData') != null;
         const userAuthData = isLogged ? JSON.parse(localStorage.getItem('userAuthData')) : null;
-        console.log(userAuthData);
+        // console.log(userAuthData);
         this.setState({ isLogged, userAuthData });
     }
     

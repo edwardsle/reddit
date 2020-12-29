@@ -11,9 +11,9 @@ const TrendingCard = () => {
               overflow: "hidden"
           }}
         >
-          <div className='text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4'>
-            <div>
-              <MDBCardTitle tag='h3' className='pt-2'>
+          <div className='text-white text-center d-flex align-items-center rgba-black-strong px-3 mx-3'>
+            <div >
+              <MDBCardTitle tag='h3' className='pt-1'>
                 <strong>This is card title</strong>
               </MDBCardTitle>
               <p>

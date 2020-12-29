@@ -5,9 +5,10 @@ const { Like, Post, User } = require('../models');
 likesRoute.use(express.json());
 
 //Get like of postID
-likesRoute.get('/post/:postID', async (req, res) => {
+likesRoute.get('/:postID', async (req, res) => {
     const postid = req.params.postID;
-    const totalVote = await Like.findOne({ include:[{model: Post},{model: User}], where: {postId: postid}},);
+    console.log(postid);
+    const totalVote = await Like.findOne({ include:[{model: User}], where: {postId: postid}},);
 
     if(totalVote != null) {
         res.status(200).json({like: totalVote});
