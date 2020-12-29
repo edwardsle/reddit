@@ -1,8 +1,32 @@
 import React, { Component } from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBCol } from "mdbreact";
 import NavLoginItem from './NavLoginItem';
+import {useDispatch,useSelector} from 'react-redux';
+import {logoutUserAction} from '../../redux/actions/users/usersActions';
 
 class Navbar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLogged: false,
+            userAuthData: {}
+        }
+        this.logOut = this.logOut.bind(this);
+        
+    }
+
+    componentDidMount() {
+        const isLogged = localStorage.getItem('userAuthData') != null;
+        const userAuthData = isLogged ? JSON.parse(localStorage.getItem('userAuthData')) : null;
+        // console.log(userAuthData);
+        this.setState({ isLogged, userAuthData });
+    }
+
+    logOut() {
+        if(this.state.isLogged != null){
+            console.log("Clicked me");
+        }
+    }
     render() {
         return (
             <MDBNavbar color="white" light className="z-depth-0 fixed-top" expand="md">
@@ -31,7 +55,17 @@ class Navbar extends Component {
                                 <MDBDropdownItem href="#!"> <MDBIcon icon="copyright"/> Reddit Coins</MDBDropdownItem>
                                 <MDBDropdownItem href="#!"> <MDBIcon icon="landmark" /> Reddit Premium</MDBDropdownItem>
                                 <MDBDropdownItem href="#!"> <MDBIcon far icon="question-circle" /> Help Center</MDBDropdownItem>
-                                <MDBDropdownItem href="#!"><MDBIcon icon="sign-in-alt" /> Log In / Sign Up</MDBDropdownItem>
+                                
+                            {
+                            this.state.isLogged ? (
+                                <>
+                                     <MDBDropdownItem href="#!"  onClick={this.logOut.bind(this)}><MDBIcon icon="sign-in-alt" /> Logout</MDBDropdownItem>
+                                </>
+                            ) : (
+                                <>
+                                    <MDBDropdownItem href="#!"><MDBIcon icon="sign-in-alt" /> Log In / Sign Up</MDBDropdownItem>
+                                </>
+                            )}
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>

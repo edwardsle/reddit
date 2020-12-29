@@ -18,15 +18,15 @@ class PopularPost extends Component {
                                     <a className="mr-3 text-primary"><i class="fas fa-burn"></i> Hot</a>
                                     <a className="dropdown-toggle mr-3 text-primary">United States</a>
                                     <a className="dropdown-toggle text-primary mr-3">All States</a>
-                                </div>                                
+                                </div>
                                 <div className="d-none d-md-block float-left">
                                     <a className="text-muted mr-3"><i class="fas fa-certificate"></i> New</a>
                                     <a className="text-muted mr-3"><i class="fas fa-sort-numeric-up"></i> Top</a>
                                 </div>
-                                
+
                             </div>
                             <div className="col-1 text-right text-primary">
-                                <a className="dropdown-toggle"><i class="fas fa-equals"></i></a>                            
+                                <a className="dropdown-toggle"><i class="fas fa-equals"></i></a>
                             </div>
                         </div>
                         <MainContent />
@@ -36,7 +36,7 @@ class PopularPost extends Component {
                     </MDBCol>
                 </MDBRow>
                 </div>
-                
+
             </MDBContainer>
         )
     }
