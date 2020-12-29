@@ -9,6 +9,7 @@ class MainContent extends Component {
             time: null,
             post: []
         }
+        this.sortBy = this.sortBy.bind(this);
     }
     componentDidMount() {
         Axios.get("http://localhost:3001/api/posts/all").then((res) => {
@@ -49,12 +50,21 @@ class MainContent extends Component {
 
     }
 
+    sortBy(key) {
+        console.log(key)
+        this.setState({
+            post: this.state.post.sort((a,b) => a[key] < b[key])
+        })
+    }
+    
     render() {
         return (
             <>
                 {
                     this.state.post.map((post) => (
-                        <MainPagePostCard post={post} />
+                        <MainPagePostCard post={post} 
+                        sortBy={this.sortBy}
+                        />
                     ))
                 }
             </>
