@@ -8,9 +8,9 @@ class PopularPost extends Component {
     render() {
         return (
             <MDBContainer className="mt-3">
-                <div className="content-bar">
-                <span className="popular-posts-title mt-3 mb-2"><strong>Popular posts</strong></span>
-                <MDBRow>
+                <div className="content-bar"> 
+                <p className="popular-posts-title mt-3 mb-2"><strong>Popular posts</strong></p>               
+                <MDBRow>                
                     <MDBCol lg="8">
                         <div className="row mt-1 mb-3 mx-0 py-3 rounded" style={{ background:"#fff", border: "1px solid rgba(135,138,140,0.5)"}}>
                             <div className="col-11 col-lg-11">
