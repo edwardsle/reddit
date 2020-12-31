@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBCol } from "mdbreact";
 import NavLoginItem from './NavLoginItem';
-import {useDispatch,useSelector} from 'react-redux';
-import {logoutUserAction} from '../../redux/actions/users/usersActions';
+import LogOut from './LogOut';
 
 class Navbar extends Component {
     constructor(props) {
@@ -59,7 +58,7 @@ class Navbar extends Component {
                             {
                             this.state.isLogged ? (
                                 <>
-                                     <MDBDropdownItem href="#!"  onClick={this.logOut.bind(this)}><MDBIcon icon="sign-in-alt" /> Logout</MDBDropdownItem>
+                                     <LogOut />
                                 </>
                             ) : (
                                 <>

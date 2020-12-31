@@ -44,7 +44,7 @@ export default class MainPagePostCard extends Component {
                     <div className="my-2"><small><strong>r/MadeMeSmile</strong> • Posted byu/{this.props.post.name} 3 hours ago</small></div>
                     <div>
                         <p>{this.props.post.content} </p>
-                        <img className="img-fluid" src="https://picsum.photos/600/300" />
+                        <img className="img-fluid" src={this.props.post.imgUrl} />
                     </div>
                     <div className="mt-2 text-muted">
                         <p>
