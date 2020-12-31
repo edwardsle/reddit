@@ -12,18 +12,17 @@ class Navbar extends Component {
             userAuthData: {}
         }
         this.logOut = this.logOut.bind(this);
-        
     }
 
     componentDidMount() {
         const isLogged = localStorage.getItem('userAuthData') != null;
         const userAuthData = isLogged ? JSON.parse(localStorage.getItem('userAuthData')) : null;
-        // console.log(userAuthData);
         this.setState({ isLogged, userAuthData });
     }
 
     logOut() {
         if(this.state.isLogged != null){
+            const dispatch = useDispatch();
             console.log("Clicked me");
         }
     }
@@ -34,7 +33,7 @@ class Navbar extends Component {
                     <img className="float-left" width="30px" src="img/reddit_logo.png" />
                     <span className="d-none d-md-block float-left ml-1"><strong>reddit</strong></span>
                 </MDBNavbarBrand>
-                <MDBCol className="mx-auto">
+                <MDBCol  className="mx-auto">
                     <div className="input-group form-sm">
                         <div className="input-group-prepend">
                             <span className="input-group-text">
@@ -56,10 +55,9 @@ class Navbar extends Component {
                                 <MDBDropdownItem href="#!"> <MDBIcon icon="landmark" /> Reddit Premium</MDBDropdownItem>
                                 <MDBDropdownItem href="#!"> <MDBIcon far icon="question-circle" /> Help Center</MDBDropdownItem>
                                 
-                            {
-                            this.state.isLogged ? (
+                            {this.state.isLogged ? (
                                 <>
-                                     <MDBDropdownItem href="#!"  onClick={this.logOut.bind(this)}><MDBIcon icon="sign-in-alt" /> Logout</MDBDropdownItem>
+                                     <MDBDropdownItem href="#!"  ><MDBIcon icon="sign-in-alt" /> Logout</MDBDropdownItem>
                                 </>
                             ) : (
                                 <>
