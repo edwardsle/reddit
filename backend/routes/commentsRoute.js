@@ -19,7 +19,7 @@ commentsRoute.get('/all', async (req, res) => {
 commentsRoute.get('/:postID', async (req, res) => {
     const postid = req.params.postID;
     console.log(postid);
-    const comments = await Comment.findAndCountAll({where: {postId:postid}});
+    const comments = await Comment.findAndCountAll({include: [{model: User}],where: {postId:postid}});
     if(comments != null ){
         res.status(200).json(comments);
     }

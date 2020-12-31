@@ -1,30 +1,21 @@
 import React from 'react';
 import { MDBContainer, MDBMedia } from 'mdbreact';
 
-const SinglePostComments = () => {
+const SinglePostComments = (props) => {
     return (
         <MDBContainer className="my-5">
-            <p className="h6 text-right"><a><strong>View discussions in 4 other communities</strong></a></p>
             <MDBMedia>
-                <MDBMedia left href="#" className="mr-3">
-                    <MDBMedia object src="https://mdbootstrap.com/img/Photos/Others/placeholder4.jpg" alt="Generic placeholder image" />
+                <MDBMedia left className="mr-3">
+                    <ul className="list-group">
+                        <li className="list-item-post-card-like" ><a><i class="far fa-caret-square-up"></i></a></li>
+                        <li className="list-item-post-card-like"><a><i class="far fa-caret-square-down"></i></a></li>
+                    </ul>
                 </MDBMedia>
                 <MDBMedia body>
                     <MDBMedia heading>
-                        Media heading
-        </MDBMedia>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <MDBMedia className="mt-3">
-                        <MDBMedia left href="#" className="pr-3">
-                            <MDBMedia object src="https://mdbootstrap.com/img/Photos/Others/placeholder4.jpg" alt="Generic placeholder image" />
-                        </MDBMedia>
-                        <MDBMedia body>
-                            <MDBMedia heading>
-                                Nested media heading
-            </MDBMedia>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </MDBMedia>
+                    <h6>{props.comment.name}</h6>
                     </MDBMedia>
+                    <h4>{props.comment.content}</h4>
                 </MDBMedia>
             </MDBMedia>
         </MDBContainer>

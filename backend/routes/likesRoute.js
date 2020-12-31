@@ -8,7 +8,7 @@ likesRoute.use(express.json());
 likesRoute.get('/:postID', async (req, res) => {
     const postid = req.params.postID;
     console.log(postid);
-    const totalVote = await Like.findOne({ include:[{model: User}], where: {postId: postid}},);
+    const totalVote = await Like.findOne({ include:[{model: User}], where: {postId: postid}});
 
     if(totalVote != null) {
         res.status(200).json({like: totalVote});

@@ -4,7 +4,7 @@ import { Button, MDBTypography, MDBCard, MDBCardHeader, MDBCardBody, MDBCardFoot
 const SideBarFitnessCard = () => {
     return (
         <MDBCard className="z-depth-0 mt-1" style={{ border: "1px solid #c3c4c5" }}>
-            <MDBCardHeader className="d-flex aqua-gradient text-white"> <img class="imgSidebar" src="./img/sidebar.png" /><MDBTypography tag='h5' variant="h5-responsive">News communities to keep you informed</MDBTypography></MDBCardHeader>
+            <MDBCardHeader className="d-flex aqua-gradient text-white"> <img class="imgSidebar" src="../img/sidebar.png" /><MDBTypography tag='h5' variant="h5-responsive">News communities to keep you informed</MDBTypography></MDBCardHeader>
             <MDBCardBody className="m-0 p-0">
             <MDBListGroup className="" style={{ width: "100%" }}>
                 <MDBListGroupItem className="border-left-0 border-right-0">

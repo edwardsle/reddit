@@ -7,6 +7,7 @@ import SinglePostPage from './components/layout/SinglePostPage';
 import Navbar from './components/layout/Navbar';
 
 class App extends Component {
+  
   render() {
     return (
       <>
@@ -14,7 +15,7 @@ class App extends Component {
           <Navbar />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/post" component={SinglePostPage} />
+              <Route exact path="/post/:id" component={SinglePostPage} />
               <Route exact path="/login" component={LoginPage} />
               <Route exact path="/register" component={RegisterPage} />
             </Switch>

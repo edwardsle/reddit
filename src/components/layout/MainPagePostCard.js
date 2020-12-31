@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 export default class MainPagePostCard extends Component {
     constructor(props){
         super(props);
         this.state = {
-            vote: this.props.post.likes
+            vote: this.props.post.likes,
         }
         this.upVotes = this.upVotes.bind(this);
         this.downVotes = this.downVotes.bind(this);
@@ -48,7 +49,9 @@ export default class MainPagePostCard extends Component {
                     </div>
                     <div className="mt-2 text-muted">
                         <p>
-                            <a className="mr-3"><small><i class="fas fa-comment-alt"></i> {this.props.post.commentsCount} Comments</small></a>
+                            <Link to={{
+                                pathname: '/post/' + this.props.post.id
+                            }}  className="mr-3"><small><i class="fas fa-comment-alt"></i> {this.props.post.commentsCount} Comments</small></Link>
                             <a className="mr-3"><small><i class="fas fa-share"></i> Share</small></a>
                             <a className="mr-3"><small><i class="fas fa-bookmark"></i> Save</small></a>
                             <a className=""><small><i class="fas fa-ellipsis-h"></i></small></a>
